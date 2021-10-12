@@ -5,6 +5,11 @@
     <title>web3</title>
 </head>
 <body>
+    <?php
+        require('util.php');
+        
+        enableErrors();
+    ?>
     <h2>Registro</h2>
     <form method="post" action="web4.php">
         
@@ -26,14 +31,18 @@
         <input type="hidden" name="correo" value="<?php 
             echo $_POST["correo"];
         ?>"/>
-        <select name="marcas[]" multiple size="5">
-            <option value="mercedes">Mercedes</option>
-            <option value="volkswagen">Volkswagen</option>
-            <option value="renault">Renault</option>
-            <option value="hyundai">Hyundai</option>
-            <option value="bmw">BMW</option>
-        </select><br>
-        <input type="submit"/> 
+        
+        <fieldset>
+            <legend>Lista de coches</legend><br>
+            <select name="marcas[]" multiple size="5">
+                <option value="mercedes">Mercedes</option>
+                <option value="volkswagen">Volkswagen</option>
+                <option value="renault">Renault</option>
+                <option value="hyundai">Hyundai</option>
+                <option value="bmw">BMW</option>
+            </select><br><br>
+            <input type="submit"/> <br>
+        </fieldset>
     </form>
 </body>
 </html>
