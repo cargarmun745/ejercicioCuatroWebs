@@ -1,8 +1,16 @@
-function prettyVardump($data){
+<?php
+function prettyVardump($array){
         $final='';
-        foreach($data as $indice =>$valor){
-            $final.= '-' . $valor . '-';
+        $contador =0;
+        foreach($array as $indice =>$valor){
+            if(!$contador==0){
+                $final .= ', ';
+            }
+            $final.= $valor;
+            
+            $contador++;
         }
+        
         return $final;
     }
     
@@ -19,4 +27,12 @@ function prettyVardump($data){
         ini_set('display_errors', '1');
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
+    }
+    
+    function validar($name, $array){
+        $value=null;
+        if (isset($array[$name])) {
+            $value = $array[$name];
+        }
+        return $value;
     }
