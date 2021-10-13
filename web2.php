@@ -2,6 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>web2</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <?php
@@ -12,17 +13,11 @@
     <h2>Registro</h2>
     <form method="post" action="web3.php">
     
-        <input type="hidden" name="usuario" value="<?php 
-                echo $_POST["usuario"];
-            ?>" />
-        
-        <input type="hidden" name="contraseña1" value="<?php 
-                echo $_POST["contraseña1"];
-            ?>"/>
-        
-        <input type="hidden" name="contraseña2" value="<?php 
-                echo $_POST["contraseña2"];
-            ?>"/>
+        <?php
+            foreach ($_POST as $name => $value) {?>
+                <input type="hidden" name="<?php echo $name;?>" value="<?php echo $value;?>"/>
+            <?php }
+        ?>
             
         <fieldset>
             <legend>Nombre, apellidos y correo</legend><br>
