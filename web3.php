@@ -3,34 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>web3</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <?php
         require('util.php');
-        
         enableErrors();
     ?>
     <h2>Registro</h2>
     <form method="post" action="web4.php">
         
-        <input type="hidden" name="usuario" value="<?php 
-            echo $_POST["usuario"];
-        ?>" />
-        <input type="hidden" name="contraseña1" value="<?php 
-            echo $_POST["contraseña1"];
-        ?>" />
-        <input type="hidden" name="contraseña2" value="<?php 
-            echo $_POST["contraseña2"];
-        ?>" />
-        <input type="hidden" name="nombre" value="<?php 
-            echo $_POST["nombre"];
-        ?>"/>
-        <input type="hidden" name="apellidos" value="<?php 
-            echo $_POST["apellidos"];
-        ?>"/>
-        <input type="hidden" name="correo" value="<?php 
-            echo $_POST["correo"];
-        ?>"/>
+        
+        <?php
+            foreach ($_POST as $name => $value) {?>
+                <input type="hidden" name="<?php echo $name;?>" value="<?php echo $value;?>"/>
+            <?php }
+        ?>
         
         <fieldset>
             <legend>Lista de coches</legend><br>
